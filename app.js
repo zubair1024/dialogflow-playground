@@ -264,7 +264,7 @@ function handleDialogFlowAction(
         let previous_job =
           isDefined(contexts[1].parameters.fields["user-previous-job"]) &&
           contexts[1].parameters.fields["user-previous-job"] != ""
-            ? contexts[1].parameters.fields["previous-job"].stringValue
+            ? contexts[1].parameters.fields["user-previous-job"].stringValue
             : "";
         let years_of_experience =
           isDefined(contexts[1].parameters.fields["user-experience-age"]) &&
