@@ -245,6 +245,7 @@ function handleDialogFlowAction(
       if (
         isDefined(contexts[1]) &&
         (contexts[1].name.includes("job_application") ||
+          contexts[1].name.includes("job_enquiry") ||
           contexts[1].name.includes(
             "job-application-details_dialog_context"
           )) &&
