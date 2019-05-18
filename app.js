@@ -285,8 +285,6 @@ function handleDialogFlowAction(
           let emailContent =
             "A new job enquiery from " +
             user_name +
-            " for the job: " +
-            job_vacancy +
             ".<br> Previous job position: " +
             previous_job +
             "." +
