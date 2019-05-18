@@ -224,41 +224,58 @@ function handleDialogFlowAction(
   switch (action) {
     case "job-application-details":
       console.log("job-application-details");
-      console.log(JSON.stringify(contexts[0]));
+      console.log(JSON.stringify(contexts[1]));
+      // let test = {
+      //   name:
+      //     "projects/test-store-agent/agent/sessions/1ec94100-79b8-11e9-9d17-8116689ad4ef/contexts/ea9df278-0714-4e5f-b909-46ce10faec56_id_dialog_context",
+      //   lifespanCount: 2,
+      //   parameters: {
+      //     fields: {
+      //       "user-name": { stringValue: "", kind: "stringValue" },
+      //       "user-experience-age": { stringValue: "", kind: "stringValue" },
+      //       "user-phone-number": { stringValue: "", kind: "stringValue" },
+      //       "user-previous-job": { stringValue: "", kind: "stringValue" },
+      //       "user-previous-job.original": { stringValue: "", kind: "stringValue" },
+      //       "user-name.original": { stringValue: "", kind: "stringValue" },
+      //       "user-phone-number.original": { stringValue: "", kind: "stringValue" },
+      //       "user-experience-age.original": { stringValue: "", kind: "stringValue" }
+      //     }
+      //   }
+      // };
       if (
-        isDefined(contexts[0]) &&
-        (contexts[0].name.includes("job_application") ||
-          contexts[0].name.includes(
+        isDefined(contexts[1]) &&
+        (contexts[1].name.includes("job_application") ||
+          contexts[1].name.includes(
             "job-application-details_dialog_context"
           )) &&
-        contexts[0].parameters
+        contexts[1].parameters
       ) {
         console.log("job-application-details_dialog_context");
         let phone_number =
-          isDefined(contexts[0].parameters.fields["user-phone-number"]) &&
-          contexts[0].parameters.fields["user-phone-number"] != ""
-            ? contexts[0].parameters.fields["user-phone-number"].stringValue
+          isDefined(contexts[1].parameters.fields["user-phone-number"]) &&
+          contexts[1].parameters.fields["user-phone-number"] != ""
+            ? contexts[1].parameters.fields["user-phone-number"].stringValue
             : "";
         let user_name =
-          isDefined(contexts[0].parameters.fields["user-name"]) &&
-          contexts[0].parameters.fields["user-name"] != ""
-            ? contexts[0].parameters.fields["user-name"].stringValue
+          isDefined(contexts[1].parameters.fields["user-name"]) &&
+          contexts[1].parameters.fields["user-name"] != ""
+            ? contexts[1].parameters.fields["user-name"].stringValue
             : "";
         let previous_job =
-          isDefined(contexts[0].parameters.fields["previous-job"]) &&
-          contexts[0].parameters.fields["user-previous-job"] != ""
-            ? contexts[0].parameters.fields["previous-job"].stringValue
+          isDefined(contexts[1].parameters.fields["previous-job"]) &&
+          contexts[1].parameters.fields["user-previous-job"] != ""
+            ? contexts[1].parameters.fields["previous-job"].stringValue
             : "";
         let years_of_experience =
-          isDefined(contexts[0].parameters.fields["user-experience-age"]) &&
-          contexts[0].parameters.fields["user-experience-age"] != ""
-            ? contexts[0].parameters.fields["user-experience-age"].stringValue
+          isDefined(contexts[1].parameters.fields["user-experience-age"]) &&
+          contexts[1].parameters.fields["user-experience-age"] != ""
+            ? contexts[1].parameters.fields["user-experience-age"].stringValue
             : "";
-        let job_vacancy =
-          isDefined(contexts[0].parameters.fields["job-vacancy"]) &&
-          contexts[0].parameters.fields["job-vacancy"] != ""
-            ? contexts[0].parameters.fields["job-vacancy"].stringValue
-            : "";
+        // let job_vacancy =
+        //   isDefined(contexts[1].parameters.fields["job-vacancy"]) &&
+        //   contexts[1].parameters.fields["job-vacancy"] != ""
+        //     ? contexts[1].parameters.fields["job-vacancy"].stringValue
+        //     : "";
         if (
           phone_number != "" &&
           user_name != "" &&
@@ -286,6 +303,9 @@ function handleDialogFlowAction(
         } else {
           handleMessages(messages, sender);
         }
+      }else{
+        console.error('')
+        handleMessages(messages, sender);
       }
       break;
     default:
