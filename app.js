@@ -276,6 +276,10 @@ function handleDialogFlowAction(
         //   contexts[1].parameters.fields["job-vacancy"] != ""
         //     ? contexts[1].parameters.fields["job-vacancy"].stringValue
         //     : "";
+        console.log("new-data: " + phone_number);
+        console.log("new-data: " + user_name);
+        console.log("new-data: " + previous_job);
+        console.log("new-data: " + years_of_experience);
         if (
           phone_number != "" &&
           user_name != "" &&
@@ -295,14 +299,16 @@ function handleDialogFlowAction(
             phone_number +
             ".";
 
+          console.log(emailContent);
+
           sendEmail("New job application", emailContent);
 
           handleMessages(messages, sender);
         } else {
           handleMessages(messages, sender);
         }
-      }else{
-        console.error('')
+      } else {
+        console.error("");
         handleMessages(messages, sender);
       }
       break;
