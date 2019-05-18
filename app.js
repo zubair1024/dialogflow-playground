@@ -223,8 +223,8 @@ function handleDialogFlowAction(
 ) {
   switch (action) {
     case "job-application-details":
-    console.log('job-application-details');
-    console.log(contexts[0]);
+      console.log("job-application-details");
+      console.log(JSON.stringify(contexts[0]));
       if (
         isDefined(contexts[0]) &&
         (contexts[0].name.includes("job_application") ||
@@ -233,7 +233,7 @@ function handleDialogFlowAction(
           )) &&
         contexts[0].parameters
       ) {
-        console.log('job-application-details_dialog_context');
+        console.log("job-application-details_dialog_context");
         let phone_number =
           isDefined(contexts[0].parameters.fields["user-phone-number"]) &&
           contexts[0].parameters.fields["user-phone-number"] != ""
