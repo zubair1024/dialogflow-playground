@@ -222,7 +222,7 @@ function handleDialogFlowAction(
   parameters
 ) {
   switch (action) {
-    case "detailed-application":
+    case "job-application-details":
       if (
         isDefined(contexts[0]) &&
         (contexts[0].name.includes("job_application") ||
@@ -260,8 +260,7 @@ function handleDialogFlowAction(
           phone_number != "" &&
           user_name != "" &&
           previous_job != "" &&
-          years_of_experience != "" &&
-          job_vacancy != ""
+          years_of_experience != ""
         ) {
           let emailContent =
             "A new job enquiery from " +
