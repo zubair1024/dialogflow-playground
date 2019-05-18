@@ -232,9 +232,9 @@ function handleDialogFlowAction(
         contexts[0].parameters
       ) {
         let phone_number =
-          isDefined(contexts[0].parameters.fields["phone-number"]) &&
-          contexts[0].parameters.fields["phone-number"] != ""
-            ? contexts[0].parameters.fields["phone-number"].stringValue
+          isDefined(contexts[0].parameters.fields["user-phone-number"]) &&
+          contexts[0].parameters.fields["user-phone-number"] != ""
+            ? contexts[0].parameters.fields["user-phone-number"].stringValue
             : "";
         let user_name =
           isDefined(contexts[0].parameters.fields["user-name"]) &&
@@ -243,13 +243,13 @@ function handleDialogFlowAction(
             : "";
         let previous_job =
           isDefined(contexts[0].parameters.fields["previous-job"]) &&
-          contexts[0].parameters.fields["previous-job"] != ""
+          contexts[0].parameters.fields["user-previous-job"] != ""
             ? contexts[0].parameters.fields["previous-job"].stringValue
             : "";
         let years_of_experience =
-          isDefined(contexts[0].parameters.fields["years-of-experience"]) &&
-          contexts[0].parameters.fields["years-of-experience"] != ""
-            ? contexts[0].parameters.fields["years-of-experience"].stringValue
+          isDefined(contexts[0].parameters.fields["user-experience-age"]) &&
+          contexts[0].parameters.fields["user-experience-age"] != ""
+            ? contexts[0].parameters.fields["user-experience-age"].stringValue
             : "";
         let job_vacancy =
           isDefined(contexts[0].parameters.fields["job-vacancy"]) &&
